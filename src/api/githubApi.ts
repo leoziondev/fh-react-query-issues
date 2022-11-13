@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 export const githubApi = axios.create({
-  baseURL: 'https://api.github.com/repos/facebook/react',
-  headers: {}
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    Authorization: `Bearer ${import.meta.env.VITE_GITHUB_FINE_GRAINED_TOKEN}`
+  }
 })
