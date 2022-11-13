@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useIssues } from '../../hooks';
 
 import { IssueList } from '../components/IssueList';
 import { LabelPicker } from '../components/LabelPicker';
 
 export const ListView = () => {
   const [selectedLabels, setSelectedLabels] = useState<string[]>([])
+  const { issuesQuery } = useIssues()
 
   const onLabelChange = (labelName: string) => {
     (selectedLabels.includes(labelName))
@@ -13,8 +15,7 @@ export const ListView = () => {
   }
 
   return (
-    <div className="row mt-5">
-      
+    <div className="row mt-5">      
       <div className="col-8">
         <IssueList />
       </div>
